@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
 public class YourServletContextListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent event) {
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+                ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         Runnable task = Secret_Key_JWT::setSecretKey;
-        executor.scheduleWithFixedDelay(task, 0, 60, TimeUnit.MINUTES);
+        executor.scheduleWithFixedDelay(task, 0, 180, TimeUnit.MINUTES);
     }
 
     public void contextDestroyed(ServletContextEvent event) {

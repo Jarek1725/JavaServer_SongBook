@@ -1,8 +1,7 @@
 package com.example.server.GetMusics;
 
+import com.example.server.Entities.SearchEverything;
 import com.example.server.GiveJWT.DecodeJWT;
-import org.apache.commons.io.IOUtils;
-import com.example.server.Entities.Song;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -11,12 +10,11 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet("/getSong")
-public class getSongSocket extends HttpServlet {
+@WebServlet("/handleSearch")
+public class handleSearch extends HttpServlet {
 
     Gson gson = new Gson();
 
@@ -25,7 +23,6 @@ public class getSongSocket extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         response.setHeader("Access-Control-Request-Method", "*");
         response.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH");
@@ -43,9 +40,9 @@ public class getSongSocket extends HttpServlet {
 
         String s = request.getParameter("songId");
 
-        Song song = GetSongQueries.getSongQuery(s, "true");
+        SearchEverything searchEverything = HandleSearchQuery.handleSearchQuery(s);
 
-        String songToReturn = gson.toJson(song);
+        String songToReturn = gson.toJson(searchEverything);
 
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");

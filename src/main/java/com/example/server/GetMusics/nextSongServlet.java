@@ -42,7 +42,7 @@ public class nextSongServlet extends HttpServlet {
 
         String nextSongId = GetNextSong.getNextSong(songId, albumId, nextOrPrev, isRandom);
 
-        Song song = GetSongQueries.getSongQuery(nextSongId);
+        Song song = GetSongQueries.getSongQuery(nextSongId, "false");
 
         String songToReturn = new Gson().toJson(song);
 

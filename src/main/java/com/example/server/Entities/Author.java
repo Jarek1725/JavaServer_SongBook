@@ -5,13 +5,24 @@ public class Author {
     String fName;
     String lName;
     String pseudonym;
+    String profilePhoto;
 
 
-    public Author(String authorId, String fName, String lName, String pseudonym) {
+    public Author(String authorId, String fName, String lName, String pseudonym, String profilePhoto) {
         this.authorId = authorId;
         this.fName = fName;
         this.lName = lName;
         this.pseudonym = pseudonym;
+        this.profilePhoto = profilePhoto;
+    }
+
+
+    public String getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(String profilePhoto) {
+        this.profilePhoto = profilePhoto;
     }
 
     public String getAuthorId() {
