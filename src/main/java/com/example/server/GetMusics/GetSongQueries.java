@@ -60,13 +60,27 @@ public class GetSongQueries {
             ResultSet rs2 = null;
 
             while (rs.next()){
+
+
+
                 preparedStatement = conn.prepareStatement("SELECT * FROM artists WHERE id = ?");
                 preparedStatement.setString(1, rs.getString("artist_id"));
 
                 rs2 = preparedStatement.executeQuery();
 
+                int counterArtist = 0;
+
                 while (rs2.next()){
+                    counterArtist = rs2.getInt("popularity");
                     authorList.add(new Author(rs2.getString("id"), rs2.getString("First_name"), rs2.getString("Last_name"), rs2.getString("Pseudonym"), rs2.getString("profile_photo")));
+                }
+
+                if(isPlus.equals("true")){
+                    preparedStatement = conn.prepareStatement("UPDATE `artists` SET `popularity` = ? WHERE `artists`.`id` = ?");
+                    preparedStatement.setInt(1, counterArtist+1);
+                    preparedStatement.setString(2, rs.getString("artist_id"));
+
+                    preparedStatement.executeUpdate();
                 }
             }
 

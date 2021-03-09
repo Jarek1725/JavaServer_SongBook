@@ -22,7 +22,7 @@ public class HandleSearchQuery {
 
         try{
             conn = DatabaseConnectionHelper.getConnection();
-            preparedStatement = conn.prepareStatement("SELECT * FROM `songs` WHERE title LIKE ? ORDER BY length(songs.popularity) DESC, popularity DESC LIMIT 8");
+            preparedStatement = conn.prepareStatement("SELECT * FROM `songs` WHERE title LIKE ? ORDER BY length(songs.popularity) DESC, popularity DESC LIMIT 6");
             preparedStatement.setString(1, "%"+searchText + "%");
 
             ResultSet rs = preparedStatement.executeQuery();
@@ -36,7 +36,7 @@ public class HandleSearchQuery {
                 songList.add(GetSongQueries.getSongQuery(rs.getString("id"), "false"));
             }
 
-            preparedStatement = conn.prepareStatement("SELECT * FROM artists WHERE artists.Pseudonym LIKE ? ORDER BY length(popularity) DESC, popularity DESC LIMIT 8");
+            preparedStatement = conn.prepareStatement("SELECT * FROM artists WHERE artists.Pseudonym LIKE ? ORDER BY length(popularity) DESC, popularity DESC LIMIT 6");
             preparedStatement.setString(1, "%"+searchText + "%");
 
             rs = preparedStatement.executeQuery();
@@ -46,16 +46,27 @@ public class HandleSearchQuery {
                 authorList.add(new Author(rs.getString("id"), rs.getString("First_name"), rs.getString("Last_name"), rs.getString("Pseudonym"), rs.getString("profile_photo")));
             }
 
-            preparedStatement = conn.prepareStatement("SELECT * FROM playlist WHERE playlist_name LIKE ? ORDER BY length(popularity) DESC, popularity DESC LIMIT 8");
+            preparedStatement = conn.prepareStatement("SELECT * FROM playlist WHERE playlist_name LIKE ? ORDER BY length(popularity) DESC, popularity DESC LIMIT 6");
             preparedStatement.setString(1, "%"+searchText + "%");
 
             rs = preparedStatement.executeQuery();
 
+            List<String> genrenames = new ArrayList<>();
+
+            PreparedStatement preparedStatement1 = null;
+
             while (rs.next()){
-                emptyLibraryList.add(new EmptyLibrary(rs.getString("id"), rs.getString("playlist_name")));
+                preparedStatement1 = conn.prepareStatement("SELECT music_genres.genre FROM playlist INNER JOIN playlist_genre ON playlist_genre.playlistId = playlist.id INNER JOIN music_genres ON music_genres.`1` = playlist_genre.genreId WHERE playlist.id = ? ORDER BY length(popularity) DESC, popularity DESC LIMIT 6");
+                preparedStatement1.setString(1, rs.getString("id"));
+                ResultSet rs2 = preparedStatement1.executeQuery();
+                while (rs2.next()){
+                    genrenames.add(rs2.getString("genre"));
+                }
+                emptyLibraryList.add(new EmptyLibrary(rs.getString("id"), rs.getString("playlist_name"), genrenames));
+                genrenames = new ArrayList<>();
             }
 
-            preparedStatement = conn.prepareStatement("SELECT * FROM albums WHERE Album_name LIKE ? ORDER BY length(popularity) DESC, popularity DESC LIMIT 8");
+            preparedStatement = conn.prepareStatement("SELECT * FROM albums WHERE Album_name LIKE ? ORDER BY length(popularity) DESC, popularity DESC LIMIT 6");
             preparedStatement.setString(1, "%"+searchText + "%");
 
             rs = preparedStatement.executeQuery();
