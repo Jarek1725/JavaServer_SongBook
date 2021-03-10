@@ -1,9 +1,12 @@
 package com.example.server.Entities;
 
+import java.util.List;
+
 public class Album {
     private String albumId;
     private String albumName;
     private String albumPhoto;
+    private List<Author> authorList;
 
 
     public Album(String albumId, String albumName, String albumPhoto) {

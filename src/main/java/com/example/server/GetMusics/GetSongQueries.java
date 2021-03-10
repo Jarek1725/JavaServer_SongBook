@@ -39,7 +39,7 @@ public class GetSongQueries {
                 song_album = rs.getString("Album");
                 String indexInAlbum = rs.getString("index_in_album");
                 String song_src = rs.getString("Song_src");
-                song = new Song(songId, song_title, song_album, indexInAlbum, song_src, null, "", "");
+                song = new Song(songId, song_title, song_album, indexInAlbum, song_src, null, "", "", null, String.valueOf(popularity));
             }
             if(isPlus.equals("true")){
                 popularity = popularity+1;
@@ -61,8 +61,6 @@ public class GetSongQueries {
 
             while (rs.next()){
 
-
-
                 preparedStatement = conn.prepareStatement("SELECT * FROM artists WHERE id = ?");
                 preparedStatement.setString(1, rs.getString("artist_id"));
 
@@ -73,15 +71,17 @@ public class GetSongQueries {
                 while (rs2.next()){
                     counterArtist = rs2.getInt("popularity");
                     authorList.add(new Author(rs2.getString("id"), rs2.getString("First_name"), rs2.getString("Last_name"), rs2.getString("Pseudonym"), rs2.getString("profile_photo")));
+
+                    if(isPlus.equals("true")){
+                        preparedStatement = conn.prepareStatement("UPDATE `artists` SET `popularity` = ? WHERE `artists`.`id` = ?");
+                        preparedStatement.setInt(1, counterArtist+1);
+                        preparedStatement.setString(2, rs.getString("artist_id"));
+
+                        preparedStatement.executeUpdate();
+                    }
                 }
 
-                if(isPlus.equals("true")){
-                    preparedStatement = conn.prepareStatement("UPDATE `artists` SET `popularity` = ? WHERE `artists`.`id` = ?");
-                    preparedStatement.setInt(1, counterArtist+1);
-                    preparedStatement.setString(2, rs.getString("artist_id"));
 
-                    preparedStatement.executeUpdate();
-                }
             }
 
             song.setSongAutor(authorList);
@@ -92,9 +92,30 @@ public class GetSongQueries {
             rs = preparedStatement.executeQuery();
 
             while (rs.next()){
+                popularity = rs.getInt("popularity");
                 song.setAlbumPhoto(rs.getString("Album_photo"));
                 song.setAlbumName(rs.getString("Album_name"));
+
+
+                PreparedStatement preparedStatement1 = conn.prepareStatement("SELECT artists.* FROM `albums` INNER JOIN album_main_artists ON album_main_artists.album_id = albums.id INNER JOIN artists ON artists.id = album_main_artists.artist_id WHERE albums.id = ?");
+                preparedStatement1.setString(1, song.getSongAlbum());
+                rs2 = preparedStatement1.executeQuery();
+                List<Author> albumList = new ArrayList<>();
+                while (rs2.next()){
+                    albumList.add(new Author(rs2.getString("id"), rs2.getString("First_name"), rs2.getString("Last_name"), rs2.getString("Pseudonym"), rs2.getString("profile_photo")));
+                    song.setMainAuthors(albumList);
+                }
             }
+
+            if(isPlus.equals("true")){
+                popularity = popularity+1;
+                preparedStatement = conn.prepareStatement("UPDATE `albums` SET `popularity` = ? WHERE `albums`.`id` = ?");
+                preparedStatement.setString(1, String.valueOf(popularity));
+                preparedStatement.setString(2, song_album);
+
+                preparedStatement.executeUpdate();
+            }
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();

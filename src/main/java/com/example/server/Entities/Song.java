@@ -11,9 +11,23 @@ public class Song {
     private List<Author> songAutor;
     private String albumPhoto;
     private String albumName;
+    private List<Author> mainAuthors;
+    private String popularity;
 
 
-    public Song(String songId, String songTitle, String songAlbum, String songIndexInAlbum, String songSource, List<Author> songAutor, String albumPhoto, String albumName) {
+//    public Song(String songId, String songTitle, String songAlbum, String songIndexInAlbum, String songSource, List<Author> songAutor, String albumPhoto, String albumName) {
+//        this.songId = songId;
+//        this.songTitle = songTitle;
+//        this.songAlbum = songAlbum;
+//        this.songIndexInAlbum = songIndexInAlbum;
+//        this.songSource = songSource;
+//        this.songAutor = songAutor;
+//        this.albumPhoto = albumPhoto;
+//        this.albumName = albumName;
+//    }
+
+
+    public Song(String songId, String songTitle, String songAlbum, String songIndexInAlbum, String songSource, List<Author> songAutor, String albumPhoto, String albumName, List<Author> mainAuthors, String popularity) {
         this.songId = songId;
         this.songTitle = songTitle;
         this.songAlbum = songAlbum;
@@ -22,6 +36,16 @@ public class Song {
         this.songAutor = songAutor;
         this.albumPhoto = albumPhoto;
         this.albumName = albumName;
+        this.mainAuthors = mainAuthors;
+        this.popularity = popularity;
+    }
+
+    public List<Author> getMainAuthors() {
+        return mainAuthors;
+    }
+
+    public void setMainAuthors(List<Author> mainAuthors) {
+        this.mainAuthors = mainAuthors;
     }
 
     public String getAlbumName() {
@@ -97,6 +121,10 @@ public class Song {
                 ", songAlbum='" + songAlbum + '\'' +
                 ", songIndexInAlbum='" + songIndexInAlbum + '\'' +
                 ", songSource='" + songSource + '\'' +
+                ", songAutor=" + songAutor +
+                ", albumPhoto='" + albumPhoto + '\'' +
+                ", albumName='" + albumName + '\'' +
+                ", mainAuthors=" + mainAuthors +
                 '}';
     }
 }

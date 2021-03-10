@@ -2,7 +2,6 @@ package com.example.server.GetMusics;
 
 import com.example.server.DatabaseConnectionHelper;
 import com.example.server.Entities.Album_Song;
-import com.example.server.Entities.Song;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +28,6 @@ public class GetSongAlbum {
             while(rs.next()){
                 String songId = rs.getString("id");
                 String songIndexInAlbum = rs.getString("index_in_album");
-
                 songs.add(new Album_Song(songId, songIndexInAlbum));
             }
 
