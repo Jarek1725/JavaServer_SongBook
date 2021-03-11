@@ -1146,272 +1146,276 @@
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="366" parent="343" name="PRIMARY">
+    <column id="366" parent="343" name="release_date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <key id="367" parent="343" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="367" parent="344" name="id">
+    <column id="368" parent="344" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="368" parent="344" name="First_name">
+    <column id="369" parent="344" name="First_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="369" parent="344" name="Last_name">
+    <column id="370" parent="344" name="Last_name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="370" parent="344" name="Pseudonym">
+    <column id="371" parent="344" name="Pseudonym">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="371" parent="344" name="popularity">
+    <column id="372" parent="344" name="popularity">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="372" parent="344" name="profile_photo">
+    <column id="373" parent="344" name="profile_photo">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="373" parent="344" name="login">
+    <column id="374" parent="344" name="login">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="344" name="password">
+    <column id="375" parent="344" name="password">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="375" parent="344" name="PRIMARY">
+    <key id="376" parent="344" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="376" parent="345" name="1">
+    <column id="377" parent="345" name="1">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="377" parent="345" name="genre">
+    <column id="378" parent="345" name="genre">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="378" parent="345" name="PRIMARY">
+    <key id="379" parent="345" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>1</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="379" parent="346" name="news_id">
+    <column id="380" parent="346" name="news_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="380" parent="346" name="title">
+    <column id="381" parent="346" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="381" parent="346" name="text">
+    <column id="382" parent="346" name="text">
       <Position>3</Position>
       <DataType>varchar(10000)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="382" parent="346" name="genre">
+    <column id="383" parent="346" name="genre">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="383" parent="346" name="PRIMARY">
+    <key id="384" parent="346" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>news_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="384" parent="347" name="id">
+    <column id="385" parent="347" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="385" parent="347" name="playlist_name">
+    <column id="386" parent="347" name="playlist_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="386" parent="347" name="creator_id">
+    <column id="387" parent="347" name="creator_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="387" parent="347" name="popularity">
+    <column id="388" parent="347" name="popularity">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="388" parent="347" name="PRIMARY">
+    <key id="389" parent="347" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="389" parent="348" name="id">
+    <column id="390" parent="348" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="390" parent="348" name="playlistId">
+    <column id="391" parent="348" name="playlistId">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="391" parent="348" name="genreId">
+    <column id="392" parent="348" name="genreId">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="392" parent="348" name="PRIMARY">
+    <key id="393" parent="348" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="393" parent="349" name="id">
+    <column id="394" parent="349" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="394" parent="349" name="song_id">
+    <column id="395" parent="349" name="song_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="395" parent="349" name="artist_id">
+    <column id="396" parent="349" name="artist_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="396" parent="349" name="PRIMARY">
+    <key id="397" parent="349" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="397" parent="350" name="id">
+    <column id="398" parent="350" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="398" parent="350" name="song_id">
+    <column id="399" parent="350" name="song_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="399" parent="350" name="playlist_id">
+    <column id="400" parent="350" name="playlist_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="400" parent="350" name="PRIMARY">
+    <key id="401" parent="350" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="401" parent="351" name="id">
+    <column id="402" parent="351" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="402" parent="351" name="Title">
+    <column id="403" parent="351" name="Title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="403" parent="351" name="Album">
+    <column id="404" parent="351" name="Album">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="404" parent="351" name="index_in_album">
+    <column id="405" parent="351" name="index_in_album">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="405" parent="351" name="Song_src">
+    <column id="406" parent="351" name="Song_src">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="406" parent="351" name="popularity">
+    <column id="407" parent="351" name="popularity">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="407" parent="351" name="PRIMARY">
+    <key id="408" parent="351" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="408" parent="352" name="id">
+    <column id="409" parent="352" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="409" parent="352" name="user_id">
+    <column id="410" parent="352" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="410" parent="352" name="playlist_id">
+    <column id="411" parent="352" name="playlist_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="411" parent="352" name="PRIMARY">
+    <key id="412" parent="352" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="412" parent="353" name="id">
+    <column id="413" parent="353" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="413" parent="353" name="login">
+    <column id="414" parent="353" name="login">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="414" parent="353" name="password">
+    <column id="415" parent="353" name="password">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="415" parent="353" name="hash">
+    <column id="416" parent="353" name="hash">
       <Position>4</Position>
       <DataType>varchar(36)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="416" parent="353" name="last_song_listen_id">
+    <column id="417" parent="353" name="last_song_listen_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="417" parent="353" name="last_song_listen_time">
+    <column id="418" parent="353" name="last_song_listen_time">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <key id="418" parent="353" name="PRIMARY">
+    <key id="419" parent="353" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
